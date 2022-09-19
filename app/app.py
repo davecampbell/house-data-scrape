@@ -1,7 +1,8 @@
 # this gets property information from a realtor website
 # teases it apart,
-# and saves it to a file
-# using selenium in colab - https://gist.github.com/korakot/5c8e21a5af63966d80a676af0ce15067
+# saves it to a file
+# shows it using dtale
+# scrapes using selenium in colab - https://gist.github.com/korakot/5c8e21a5af63966d80a676af0ce15067
 
 # set options to be headless, ..
 from selenium import webdriver
@@ -19,6 +20,7 @@ import flatten_dict
 from flatten_dict import flatten
 import pandas as pd
 import datetime as dt
+import dtale
 
 # url for the web page
 # url = "https://www.realtor.com/realestateandhomes-search/Jefferson-County_KY/beds-4/show-recently-sold"
@@ -96,3 +98,8 @@ name = "out/out" + dt.datetime.now().strftime("%Y%m%d-%H%M%S") + ".csv"
 p_df.to_csv(name)
 
 print(f"saving output to: {name}")
+
+# output dataframe using DTale
+# https://github.com/man-group/dtale
+
+dtale.show(p_df, subprocess=False)
