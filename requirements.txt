@@ -1,0 +1,5 @@
+selenium
+flatten-dict
+lxml
+beautifulsoup4
+pandas
